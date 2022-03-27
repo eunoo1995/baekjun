@@ -5,12 +5,25 @@
 //   .trim()
 //   .split("\n");
 
-function d(n) {
-  console.log(n);
-  n = n + Math.floor(n / 10) + (n % 10);
-  d(n);
+function selfBumber() {
+  let arr = [];
+  let result = "";
+
+  for (let i = 1; i <= 10000; i++) {
+    let sum = 0;
+    let str = i + "";
+    for (let j = 0; j < str.length; j++) {
+      sum += parseInt(str[j]);
+    }
+    sum += i;
+    arr.push(sum);
+  }
+  for (let i = 1; i <= 10000; i++) {
+    if (!arr.includes(i)) result += i + "\n";
+  }
+  console.log(result);
 }
-d(33);
+selfBumber();
 // 셀프 넘버는 1949년 인도 수학자 D.R. Kaprekar가 이름 붙였다. 양의 정수 n에 대해서 d(n)을 n과 n의 각 자리수를 더하는 함수라고 정의하자. 예를 들어, d(75) = 75+7+5 = 87이다.
 
 // 양의 정수 n이 주어졌을 때, 이 수를 시작해서 n, d(n), d(d(n)), d(d(d(n))), ...과 같은 무한 수열을 만들 수 있다.
