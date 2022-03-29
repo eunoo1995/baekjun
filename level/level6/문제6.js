@@ -2,10 +2,8 @@ const fs = require("fs");
 const input = fs
   .readFileSync("/Users/test/Desktop/beakjun/input.txt")
   .toString()
-  .trim()
-  .split(" ");
+  .trim();
 
-let num1 = BigInt(input[0]);
-let num2 = BigInt(input[1]);
-let result = num1 + num2 + "";
+let result = input[0] == undefined ? 0 : input.split(" ").length;
+
 console.log(result);

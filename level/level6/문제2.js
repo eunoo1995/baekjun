@@ -2,24 +2,15 @@ const fs = require("fs");
 const input = fs
   .readFileSync("/Users/test/Desktop/beakjun/input.txt")
   .toString()
-  .trim();
+  .trim()
+  .split("\n");
 
-let num = parseInt(input);
+let length = parseInt(input[0]);
+let nums = input[1].split("");
 
-function hansu(n) {
-  let arr = [];
-  for (let i = 1; i <= n; i++) {
-    if (i < 100) {
-      arr.push(i);
-      continue;
-    }
-    let str = i + "";
-    let dis1 = parseInt(str[0]) - parseInt(str[1]);
-    let dis2 = parseInt(str[1]) - parseInt(str[2]);
-
-    if (dis1 == dis2) arr.push(i);
-  }
-  return arr.length;
+let result = 0;
+for (let i = 0; i < length; i++) {
+  result += parseInt(nums[i]);
 }
 
-console.log(hansu(num));
+console.log(result);

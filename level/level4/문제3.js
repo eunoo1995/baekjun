@@ -1,23 +1,19 @@
 const fs = require("fs");
 const input = fs
   .readFileSync("/Users/test/Desktop/beakjun/input.txt", "utf8")
-  .toString();
+  .toString()
+  .split("\n");
 
-let num = input;
+let num = 1;
+for (let item of input) num *= item;
+
+num += "";
 
 let cnt = 0;
-let next = num;
-do {
-  if (next.length == 1) {
-    next = 0 + next;
+for (let i = 0; i < 10; i++) {
+  for (let j = 0; j < num.length; j++) {
+    if (i == Number(num[j])) cnt++;
   }
-  let a = next.split("")[0];
-  let b = next.split("")[1];
-  let c = parseInt(a) + parseInt(b) + "";
-  next = b + c.charAt(c.length - 1);
-  if (next.charAt(0) == 0) {
-    next = next.substring(1);
-  }
-  cnt++;
-} while (next != num);
-console.log(cnt);
+  console.log(cnt);
+  cnt = 0;
+}

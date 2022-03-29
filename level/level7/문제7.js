@@ -2,20 +2,44 @@ const fs = require("fs");
 const input = fs
   .readFileSync("/Users/test/Desktop/beakjun/input.txt")
   .toString()
-  .trim()
-  .split(" ");
+  .trim();
 
-let fir = input[0].split("");
-let sec = input[1].split("");
+let kg = parseInt(input);
 
-let num1 = "";
-let num2 = "";
-for (let i = fir.length - 1; i >= 0; i--) {
-  num1 += fir[i];
+// let high = 5;
+// let mid = 3;
+// let total = 0;
+
+// if (kg % high == 0 || kg % mid == 0) {
+//   if (kg % high == 0 && kg % mid != 0) {
+//     total = kg / high;
+//   } else if ((kg % high) % mid == 0) {
+//     total = Math.floor(kg / high);
+//     total += (kg % high) / mid;
+//   } else {
+//     total = kg / mid;
+//   }
+// } else {
+//   if ((kg - high) % mid == 0) {
+//     total = (kg - high) / mid + 1;
+//   } else {
+//     total = -1;
+//   }
+// }
+
+let count = 0;
+
+while (true) {
+  if (kg % 5 === 0) {
+    console.log(kg / 5 + count);
+    break;
+  }
+
+  if (0 > kg) {
+    console.log(-1);
+    break;
+  }
+
+  count++;
+  kg -= 3;
 }
-for (let i = sec.length - 1; i >= 0; i--) {
-  num2 += sec[i];
-}
-let result = parseInt(num1) > parseInt(num2) ? num1 : num2;
-
-console.log(result);

@@ -4,17 +4,53 @@ const input = fs
   .toString()
   .trim();
 
-let s = input;
+let N = Number(input);
+let A = 0;
+let B = 1;
+let i = 0;
 
-let obj = {};
+while (N > i) {
+  A++;
+  i++;
 
-for (let i = "a".charCodeAt(); i <= "z".charCodeAt(); i++) {
-  obj[String.fromCharCode(i)] = -1;
+  if (N === i) {
+    break;
+  }
+
+  while (A > 1) {
+    A--;
+    B++;
+    i++;
+
+    if (N === i) {
+      break;
+    }
+  }
+
+  if (N === i) {
+    break;
+  }
+
+  B++;
+  i++;
+
+  if (N === i) {
+    break;
+  }
+
+  while (B > 1) {
+    B--;
+    A++;
+    i++;
+
+    if (N === i) {
+      break;
+    }
+  }
+
+  if (N === i) {
+    break;
+  }
 }
 
-for (i = 0; i < s.length; i++) {
-  if (obj[s[i]] != -1) continue;
-  obj[s[i]] = i;
-}
-
-console.log(Object.values(obj).join(" "));
+console.log(`${A}/${B}`);

@@ -4,11 +4,8 @@ const input = fs
   .toString()
   .split("\n");
 
-let index = 0;
+let arr = input;
 
-while (index < input.length) {
-  let a = parseInt(input[index].split(" ")[0]);
-  let b = parseInt(input[index].split(" ")[1]);
-  console.log(a + b);
-  index++;
-}
+let max = Math.max(...arr);
+let line = arr.indexOf(max + "") + 1;
+console.log(max + "\n" + line);

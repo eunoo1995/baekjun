@@ -2,15 +2,16 @@ const fs = require("fs");
 const input = fs
   .readFileSync("/Users/test/Desktop/beakjun/input.txt")
   .toString()
-  .trim()
-  .split("\n");
+  .trim();
 
-let length = parseInt(input[0]);
-let nums = input[1].split("");
+let num = parseInt(input);
+let range = 1,
+  block = 1;
 
-let result = 0;
-for (let i = 0; i < length; i++) {
-  result += parseInt(nums[i]);
+while (block < num) {
+  block += 6 * range;
+
+  range++;
 }
 
-console.log(result);
+console.log(range);

@@ -4,14 +4,9 @@ const input = fs
   .toString()
   .split("\n");
 
-let a;
-let b;
-let index = 0;
+let arr = input[1].split(" ");
 
-while (1) {
-  a = parseInt(input[index].split(" ")[0]);
-  b = parseInt(input[index].split(" ")[1]);
-  if (a == 0) break;
-  console.log(a + b);
-  index++;
-}
+let max = Math.max(...arr);
+let min = Math.min(...arr);
+
+console.log(min, max);
