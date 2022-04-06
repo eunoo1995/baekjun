@@ -6,12 +6,14 @@ const input = fs
 
 let num = Number(input);
 
-const factorial = function (n) {
-  if (n <= 1) {
+const answer = function (n) {
+  if (n == 0) {
+    return 0;
+  } else if (n <= 1) {
     return 1;
   }
 
-  return n * factorial(n - 1);
+  return answer(n - 1) + answer(n - 2);
 };
 
-console.log(factorial(num));
+console.log(answer(num));
